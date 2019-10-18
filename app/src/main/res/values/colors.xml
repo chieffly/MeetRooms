@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F38300</color>
+    <color name="colorPrimaryDark">#AC5D01</color>
+    <color name="colorAccent">#0080ff</color>
+    <color name="subtitle_text_color">#3D3D3D</color>
+    <color name="colorBlack">#000000</color>
+    <color name="action_color">#0080ff</color>
+    <color name="colorLightGray">#CFCFCF</color>
+    <color name="colorUltraLightGray">#EFEFEF</color>
+    <color name="colorBackground">#E4BC5E</color>
+    <color name="colorAction">#00AF00</color>
+    <color name="colorSecondary">#0080ff</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGray">#999999</color>
+    <color name="colorError">#F44336</color>
+    <color name="colorBackgroundDark">#AC5D01</color>
+</resources>

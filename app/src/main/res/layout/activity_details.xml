@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/txt_title_env"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/str_description"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="16dp" />
+
+        <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title_env"
+                tools:layout_editor_absoluteX="16dp" />
+        <View
+                android:id="@+id/separator0"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorLightGray"
+                app:layout_constraintTop_toBottomOf="@+id/txt_description"
+                tools:layout_editor_absoluteX="0dp" />
+
+        <LinearLayout
+            android:id="@+id/envSeats"
+            app:layout_constraintTop_toBottomOf="@+id/separator0"
+            android:layout_marginTop="16dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="16dp"
+
+                app:srcCompat="@drawable/ic_person" />
+
+            <TextView
+                android:id="@+id/txtSeats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/str_seats"
+                android:textSize="16sp"
+                android:tint="@color/subtitle_text_color"
+                android:drawablePadding="16dp"
+                android:layout_marginLeft="16dp"
+        />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/env_projetor"
+            app:layout_constraintTop_toBottomOf="@+id/envSeats"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                app:srcCompat="@drawable/ic_proektor" />
+        <TextView
+                android:id="@+id/txt_projetor"
+                android:text="@string/str_projector"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:tint="@color/subtitle_text_color"
+                android:drawablePadding="16dp"
+                android:layout_marginLeft="16dp" />
+
+            />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/env_board"
+            app:layout_constraintTop_toBottomOf="@+id/env_projetor"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                app:srcCompat="@drawable/ic_markerboard" />
+        <TextView
+                android:id="@+id/txt_board"
+                android:text="@string/str_markerboard"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_gravity="center"
+                android:drawablePadding="16dp"
+                android:tint="@color/subtitle_text_color"
+                android:layout_marginLeft="16dp" />
+        </LinearLayout>
+
+        <View
+                android:id="@+id/separator1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorLightGray"
+                app:layout_constraintTop_toBottomOf="@+id/env_board"
+                tools:layout_editor_absoluteX="0dp" />
+
+
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReserve"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/str_reserve"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+                android:id="@+id/txt_title_meets"
+                app:layout_constraintTop_toBottomOf="@+id/separator1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/str_reserve_time"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_meets"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+
+                app:layout_constraintTop_toBottomOf="@+id/txt_title_meets"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="264dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
