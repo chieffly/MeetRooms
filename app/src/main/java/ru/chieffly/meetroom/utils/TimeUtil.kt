@@ -2,12 +2,13 @@ package ru.chieffly.meetroom.utils
 
 import java.text.SimpleDateFormat
 import java.util.*
+ const val SECOND_MILLIS = 1000
+ const val MINUTE_MILLIS = 60 * SECOND_MILLIS
+ const val HOUR_MILLIS = 60 * MINUTE_MILLIS
+ const val DAY_MILLIS = 24 * HOUR_MILLIS
 
 object TimeUtil {
-    private const val SECOND_MILLIS = 1000
-    private const val MINUTE_MILLIS = 60 * SECOND_MILLIS
-    private const val HOUR_MILLIS = 60 * MINUTE_MILLIS
-    private const val DAY_MILLIS = 24 * HOUR_MILLIS
+
 
     val dateFormatToSeconds: SimpleDateFormat by lazy { SimpleDateFormat("yyyy-MM-dd HH:mm:ss z") }
     val dateFormatToMinutes : SimpleDateFormat by lazy { SimpleDateFormat("yyyy-MM-dd HH:mm z")}
@@ -27,7 +28,11 @@ object TimeUtil {
     }
 
     fun parseUnixTimeFormated(unixSeconds: Long, sdf: SimpleDateFormat): String {
-        val date = Date(unixSeconds * 1000L)
+        var time = unixSeconds
+        if (time < 1000000000000L) {
+            time *= 1000L
+        }
+        val date = Date(time)
         sdf.timeZone = TimeZone.getTimeZone("GMT+3")
         return sdf.format(date)
     }

@@ -21,7 +21,6 @@ class NotificationUtils {
             val random = Random()
 
             val success = random.nextInt(2)
-            println("RANDOM = " + success)
             alarmIntent.putExtra("success", success)
             alarmIntent.putExtra("room", room.name)
             alarmIntent.putExtra("timestamp", timeInMilliSeconds)
@@ -29,8 +28,6 @@ class NotificationUtils {
 
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = timeInMilliSeconds
-            println(TimeUtil.getCalendarTimeFormated(calendar, TimeUtil.dateFormatToSeconds))
-            println(TimeUtil.getNowFormated(TimeUtil.dateFormatToSeconds))
 
             val pendingIntent = PendingIntent.getBroadcast(activity, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT)
             alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 4000, pendingIntent)

@@ -108,7 +108,7 @@ class RoomlistHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         showRefresh()
         val now = Date().time
-        meetDB.getNextMeets(item.id, 1571050000)
+        meetDB.getNextMeets(item.id, 0)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { listMeets ->

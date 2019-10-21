@@ -64,6 +64,8 @@ class ReserveActivity : PresenterActivity(), ReserveView {
             presenter.onSendReserve(currentRoom)
             NotificationUtils().setNotification(currentRoom,  this@ReserveActivity)
             val intent = Intent(this, RoomlistActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
             startActivity(intent)
             finish()
 

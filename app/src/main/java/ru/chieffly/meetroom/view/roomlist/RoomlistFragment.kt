@@ -79,7 +79,7 @@ class RoomlistFragment : PresenterFragment(), Refreshable, RoomlistView,
         recyclerAdapter = RoomlistAdapter(this)
         recyclerView!!.layoutManager = LinearLayoutManager(activity)
         recyclerView!!.adapter = recyclerAdapter
-        presenter.updateRooms()
+        presenter.getProjects()
         onRefreshData()
     }
 
@@ -89,6 +89,7 @@ class RoomlistFragment : PresenterFragment(), Refreshable, RoomlistView,
     }
 
     override fun onRefreshData() {
+        presenter.updateMeets()
         if (showFavs)
             presenter.showFavRoomsFromDB()
         else

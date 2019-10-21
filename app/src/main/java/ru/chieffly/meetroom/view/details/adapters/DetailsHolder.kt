@@ -23,13 +23,6 @@ class DetailsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(item: Meet, onItemClickListener: DetailsAdapter.OnItemClickListener) {
 
-        println("ALIVE TIME ST! "+ item.timeStart + "  " + TimeUtil.parseUnixTimeFormated (item.timeStart, TimeUtil.dateFormatOnlyHours))
-        println("ALIVE TIME END! "+TimeUtil.parseUnixTimeFormated (item.timeEnd, TimeUtil.dateFormatOnlyHours))
-        println("ALIVE TIME END! "+item.roomId)
-        println("ALIVE TIME END! "+item.date)
-
-
-
         txtDate.text = item.date
         val myStr = buildString {
             append(TimeUtil.parseUnixTimeFormated (item.timeStart, TimeUtil.dateFormatOnlyHours))
@@ -40,25 +33,6 @@ class DetailsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
         txtTime.text = myStr
 
-//        txtRoomName.text = item.name
-//        txtChairs.text = item.seats.toString()
-//        txtDescription.text = item.description
-//
-//        txtTime.text = "Ожидание данных..."
-//
-//        item.nextMeet?.let {
-//
-//            txtTime.text = it
-//        }
-//
-//        imgBoard.isVisible = item.hasBoard
-//        imgProjector.isVisible = item.hasProjector
-//
-//        itemView.setOnClickListener { v ->
-//            onItemClickListener.onItemClick(
-//                item
-//            )
-//        }
     }
 
     companion object {

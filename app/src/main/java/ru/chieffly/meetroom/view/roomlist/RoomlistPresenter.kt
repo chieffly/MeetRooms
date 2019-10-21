@@ -9,6 +9,7 @@ import ru.chieffly.meetroom.db.MeetroomDao
 import ru.chieffly.meetroom.model.rooms.Meetroom
 import ru.chieffly.meetroom.net.AuthApi
 import ru.chieffly.meetroom.net.MeetroomApi
+import ru.chieffly.meetroom.utils.TestMeetGenerator
 import ru.chieffly.meetroom.utils.UserStorage
 import ru.chieffly.meetroom.view.base.BasePresenter
 import javax.inject.Inject
@@ -52,6 +53,7 @@ class RoomlistPresenter : BasePresenter<RoomlistView>() {
     }
 
     fun updateMeets() {
+
         mCompositeDisposable.add(roomApi.getMeets()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -61,23 +63,21 @@ class RoomlistPresenter : BasePresenter<RoomlistView>() {
                 db.addMeetsInDB(listMeets)
             } , { viewState.showError(0)
                 viewState.hideRefresh()
-
+                println("SHOW ERROR $it" )
             }))
     }
 
 
 
     fun getProjects() {
+        updateRooms()
         updateMeets()
-        showRoomsFromDB ()
     }
 
-
     fun addRooms (listRooms: List<Meetroom>) {
-
         listRooms.forEach {
                 meetroomDB.insert(it)
-            println("ALIVE add "+ it.id)}
+        }
     }
 
     fun showRoomsFromDB ()  {
@@ -110,7 +110,9 @@ class RoomlistPresenter : BasePresenter<RoomlistView>() {
             .subscribe({ authInfo ->
                 storage.clear()
                 viewState.exitToLoginScreen()
-            },{ println("PROBLEM $it")})
+            },{
+                println("PROBLEM $it")
+            })
 
     }
 }

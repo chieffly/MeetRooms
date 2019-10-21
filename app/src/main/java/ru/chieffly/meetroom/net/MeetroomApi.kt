@@ -10,12 +10,6 @@ import ru.chieffly.meetroom.model.rooms.Meetroom
 
 interface MeetroomApi {
 
-//    @POST("/auth/login")
-//    fun loginRequest (@Body body: LoginUserRequestDto) : Flowable<AuthInfoDto>
-//
-//    @POST("/auth/logout")
-//    fun logoutRequest (@Header("authorization") token: String) : Flowable<AuthInfoDto>
-
     @GET("/rooms")
     fun getRooms () : Flowable<List<Meetroom>>
 

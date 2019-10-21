@@ -38,28 +38,6 @@ class DBStorage {
         }
     }
 
-    fun getRoomById (id: Long) {
-
-//        meetroomDB.getById(id)
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe(object : DisposableSingleObserver<Meetroom>() {
-//                @Throws(Exception::class)
-//                override fun onSuccess(employee: Meetroom) {
-//                    // ...
-//                    println("ALIVE FINNALY!! " + employee.name)
-//                }
-//            })
-//               meetroomDB.getById(id)
-//                   .observeOn(AndroidSchedulers.mainThread())
-//                   .subscribe( Consumer<Meetroom>() {
-//                       override fun accept(employee: Meetroom )  {
-//                           // ...
-//                       }}
-//                )
-
-    }
-
     interface StorageOwner {
 
         fun obtainStorage(): DBStorage

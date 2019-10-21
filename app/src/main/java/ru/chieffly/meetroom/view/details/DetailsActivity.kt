@@ -65,7 +65,7 @@ class DetailsActivity : PresenterActivity(), DetailsView, DetailsAdapter.OnItemC
     }
 
     private fun initViews() {
-        txt_projetor.isVisible = currentRoom.hasProjector
+        env_projetor.isVisible = currentRoom.hasProjector
         env_board.isVisible = currentRoom.hasBoard
         txt_description.text = currentRoom.description
         txtSeats.text =
@@ -83,7 +83,6 @@ class DetailsActivity : PresenterActivity(), DetailsView, DetailsAdapter.OnItemC
         toolbar_actionbar.setNavigationOnClickListener {
             onBackPressed()
         }
-
     }
 
     private fun initListeners() {

@@ -20,11 +20,7 @@ class NotificationService : IntentService("NotificationService") {
 
     @SuppressLint("NewApi")
     private fun createChannel() {
-        println("NOT CHANNEL")
-
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
 
             val context = this.applicationContext
             val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -39,7 +35,6 @@ class NotificationService : IntentService("NotificationService") {
             notificationChannel.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
             notificationManager.createNotificationChannel(notificationChannel)
         }
-
     }
 
     companion object {
@@ -84,10 +79,6 @@ class NotificationService : IntentService("NotificationService") {
 
             }
 
-//            notifyIntent.putExtra("title", title)
-//            notifyIntent.putExtra("message", message)
-//            notifyIntent.putExtra("notification", true)
-
             notifyIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
 
             val calendar = Calendar.getInstance()
@@ -102,30 +93,22 @@ class NotificationService : IntentService("NotificationService") {
 
 
                 notification = Notification.Builder(this, CHANNEL_ID)
-                    // Set the intent that will fire when the user taps the notification
                     .setContentIntent(pendingIntent)
                     .setSmallIcon(R.drawable.ic_round_table)
                     .setLargeIcon(BitmapFactory.decodeResource(res, R.mipmap.ic_launcher))
                     .setAutoCancel(true)
                     .setContentTitle(title)
                     .setTicker(title)
-//                    .setStyle(Notification.BigTextStyle()
-//                        .bigText(message))
-//                    .setChannelId(CHANNEL_ID)
                     .setContentText(message).build()
             } else {
 
                 notification = Notification.Builder(this)
-                    // Set the intent that will fire when the user taps the notification
                     .setContentIntent(pendingIntent)
                     .setSmallIcon(R.drawable.disc)
                     .setLargeIcon(BitmapFactory.decodeResource(res, R.mipmap.ic_launcher))
                     .setAutoCancel(true)
-//                    .setPriority(Notification.PRIORITY_MAX)
                     .setContentTitle(title)
                     .setTicker(title)
-//                    .setStyle(Notification.BigTextStyle()
-//                        .bigText(message))
                     .setSound(uri)
                     .setContentText(message).build()
 

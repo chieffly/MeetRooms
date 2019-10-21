@@ -30,18 +30,17 @@ class DetailsPresenter : BasePresenter<DetailsView>() {
     }
 
     fun getMeets(roomId: Long) {
-        val now = Date().time
 
-        meetDB.getNextMeets(roomId,1571000000)
+        meetDB.getNextMeets(room_id = roomId, timeNow = System.currentTimeMillis())
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe{
                     listMem ->
-                viewState.showList(listMem)
+                viewState.showList(list = listMem)
             }
     }
 
     fun updateDB (item: Meetroom): Completable = Completable.fromAction {
-        meetroomDB.update(item)
+        meetroomDB.update(meetroom = item)
     }
 }

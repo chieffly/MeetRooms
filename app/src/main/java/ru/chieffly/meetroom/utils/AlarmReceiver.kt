@@ -9,7 +9,6 @@ class AlarmReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
 
-        println("ON RECIEVE")
         val service = Intent(context, NotificationService::class.java)
 
         service.putExtra("success", intent.getIntExtra("success",0))
